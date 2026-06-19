@@ -1,0 +1,104 @@
+<header class="hero">
+  <nav class="nav">
+    <img src="assets/logo.jpeg" alt="LEYDYMEN Academy" class="logo">
+    <a href="#inscription" class="nav-cta">Pré-inscription</a>
+  </nav>
+  <section class="hero-content">
+    <div class="hero-text">
+      <span class="pill">Tomorrow Is Now</span>
+      <h1>Bootcamps professionnels LEYDYMEN Academy</h1>
+      <p>Séminaires intensifs de 4 semaines pour construire des projets web et mobile avec des technologies modernes.</p>
+      <div class="hero-actions">
+        <a href="#bootcamps" class="btn primary">Voir les bootcamps</a>
+        <a href="#inscription" class="btn secondary">Réserver une place</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <strong>Places limitées</strong>
+      <span>15 participants par Bootcamp</span>
+      <b>25 000 FCFA</b>
+    </div>
+  </section>
+</header>
+
+<main>
+  <section class="section intro">
+    <h2>Pourquoi choisir LEYDYMEN Academy ?</h2>
+    <div class="features">
+      <div>✅ Projet professionnel complet</div>
+      <div>✅ Code source fourni</div>
+      <div>✅ Support PDF</div>
+      <div>✅ Attestation de participation</div>
+      <div>✅ Groupe WhatsApp</div>
+      <div>✅ Accompagnement technique</div>
+    </div>
+  </section>
+
+  <section id="bootcamps" class="section">
+    <div class="section-title">
+      <span>Catalogue</span>
+      <h2>Choisissez votre Bootcamp</h2>
+    </div>
+    <div class="cards">
+      <article class="bootcamp-card" *ngFor="let b of bootcamps">
+        <img [src]="b.img" [alt]="b.label">
+        <div class="card-body">
+          <span>{{ b.title }}</span>
+          <h3>{{ b.label }}</h3>
+          <p>4 semaines • 4 séances de 4h • approche pratique</p>
+          <button (click)="selectBootcamp(b.key)">Choisir ce Bootcamp</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="inscription" class="section form-section">
+    <div class="form-info">
+      <span class="pill">Pré-inscription</span>
+      <h2>Réservez votre place</h2>
+      <p>Remplissez ce formulaire. Vous serez contacté pour confirmer votre inscription et recevoir les modalités de participation.</p>
+      <ul>
+        <li>📞 WhatsApp : 77 876 77 68 / 78 488 27 09</li>
+        <li>📍 Sénégal</li>
+        <li>🎓 LEYDYMEN Academy</li>
+      </ul>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form-card">
+      <label>Nom et Prénom *<input formControlName="full_name" placeholder="Ex : Amadou Bousso"></label>
+      <label>Téléphone / WhatsApp *<input formControlName="phone" placeholder="778767768"></label>
+      <label>Email *<input formControlName="email" placeholder="exemple@gmail.com"></label>
+      <div class="grid-two">
+        <label>Ville / Localité<input formControlName="city" placeholder="Dakar"></label>
+        <label>Établissement / Entreprise<input formControlName="school_or_company" placeholder="Université, école, entreprise..."></label>
+      </div>
+      <label>Niveau *
+        <select formControlName="level">
+          <option value="">Choisir</option><option>Licence 1</option><option>Licence 2</option><option>Licence 3</option><option>Master</option><option>Professionnel</option><option>Autre</option>
+        </select>
+      </label>
+      <label>Bootcamp souhaité *
+        <select formControlName="bootcamp">
+          <option value="">Choisir</option>
+          <option value="spring">Spring Boot • Angular • PostgreSQL</option>
+          <option value="django">Django • Angular • PostgreSQL</option>
+          <option value="flutter">Flutter • Django • Firebase</option>
+        </select>
+      </label>
+      <div class="grid-two">
+        <label>Niveau en programmation *<select formControlName="programming_level"><option value="">Choisir</option><option>Débutant</option><option>Intermédiaire</option><option>Avancé</option></select></label>
+        <label>Ordinateur portable ? *<select formControlName="has_laptop"><option value="">Choisir</option><option>Oui</option><option>Non</option></select></label>
+      </div>
+      <label>Motivation<textarea formControlName="motivation" rows="4" placeholder="Pourquoi souhaitez-vous participer ?"></textarea></label>
+      <div class="grid-two">
+        <label>Comment avez-vous connu LEYDYMEN ?<select formControlName="discovery_source"><option value="">Choisir</option><option>WhatsApp</option><option>Facebook</option><option>Ami</option><option>Enseignant</option><option>Affiche</option><option>Autre</option></select></label>
+        <label>Contact préféré *<select formControlName="preferred_contact"><option>WhatsApp</option><option>Appel téléphonique</option><option>E-mail</option></select></label>
+      </div>
+      <p class="error" *ngIf="error">{{ error }}</p>
+      <p class="success" *ngIf="success">{{ success }}</p>
+      <button class="submit" [disabled]="loading">{{ loading ? 'Envoi en cours...' : 'Envoyer ma pré-inscription' }}</button>
+    </form>
+  </section>
+</main>
+
+<footer>© 2026 LEYDYMEN Academy — Technologie • Innovation • Excellence</footer>
