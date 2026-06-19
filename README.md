@@ -1,52 +1,56 @@
-# LEYDYMEN Academy – Portail de pré-inscription
+# LEYDYMEN Academy
 
-Projet complet Angular + Django pour les Bootcamps LEYDYMEN Academy.
+**Version actuelle : v1.0.0**
 
-## Fonctionnalités
+LEYDYMEN Academy est une plateforme web de pré-inscription aux bootcamps professionnels.  
+Elle évoluera progressivement vers une plateforme complète de gestion de bootcamps puis de gestion académique.
 
-- Page d'accueil professionnelle avec logo et couleurs LEYDYMEN
-- Présentation des 3 Bootcamps
-- Formulaire de pré-inscription
-- Enregistrement des inscriptions dans Django Admin / SQLite
-- Architecture extensible vers PostgreSQL, paiement, e-mail, WhatsApp, etc.
+## Technologies
 
-## Lancer le backend Django
+- Frontend : Angular
+- Backend : Django 5 + Django REST Framework
+- Base de données : PostgreSQL Render
+- Hébergement : Render
+- Versioning : Git + GitHub
 
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate     # Windows
-# source venv/bin/activate # Linux/Mac
-pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver
-```
+## Fonctionnalités validées en v1.0.0
 
-Backend : http://127.0.0.1:8000
-Admin : http://127.0.0.1:8000/admin
-API : http://127.0.0.1:8000/api/registrations/
+- Formulaire public de pré-inscription
+- Enregistrement des inscriptions dans PostgreSQL
+- Administration Django
+- API REST sécurisée
+- Déploiement automatique via GitHub
+- Création automatique du superutilisateur
+- Communication Angular → Django → PostgreSQL
 
-## Lancer le frontend Angular
+## Liens
 
-```bash
-cd frontend
-npm install
-npm start
-```
+Frontend public : https://leydymen-academy-frontend.onrender.com  
+Backend API : https://leydymen-academy.onrender.com
 
-Frontend : http://localhost:4200
+## Devise du projet
 
-## Important pour l'hébergement
+> Toute nouvelle fonctionnalité doit être ajoutée sans jamais casser une fonctionnalité déjà validée.
 
-GitHub Pages, Netlify et Vercel hébergent très bien Angular, mais pas Django en mode classique.
-Pour Django, utilise Render, Railway, PythonAnywhere ou un VPS.
+## Méthodologie de développement
 
-Pour connecter Angular au backend en ligne, modifie dans `frontend/src/main.ts` :
+Avant chaque nouvelle fonctionnalité :
 
-```ts
-const API_URL = 'https://ton-backend-en-ligne.com/api/registrations/';
-```
+1. Analyser
+2. Concevoir
+3. Développer
+4. Tester localement
+5. Commit Git
+6. Push GitHub
+7. Vérifier le déploiement Render
+8. Valider
 
-Puis reconstruis le frontend.
+## Roadmap
+
+Voir le fichier `ROADMAP.md`.
+
+## Historique
+
+Voir le fichier `CHANGELOG.md`.
+
+© LEYDYMEN Academy
