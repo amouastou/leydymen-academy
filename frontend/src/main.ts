@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 
-const API_URL = 'http://127.0.0.1:8000/api/registrations/';
+const API_URL = 'https://leydymen-academy.onrender.com/api/registrations/';
 
 @Component({
   selector: 'app-root',
