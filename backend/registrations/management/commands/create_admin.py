@@ -21,10 +21,5 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS("Superuser existe déjà."))
             return
 
-        User.objects.create_superuser(
-            username=username,
-            email=email,
-            password=password
-        )
-
+        User.objects.create_superuser(username=username, email=email, password=password)
         self.stdout.write(self.style.SUCCESS("Superuser créé avec succès."))
